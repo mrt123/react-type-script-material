@@ -1,12 +1,12 @@
 import React from 'react'
-import RoutePage from "../common/RoutePage";
+import StandardPage from "../common/navigation/StandardPage";
 
 interface Props {
 
 }
 
 export default() => (
-    <RoutePage>
+    <StandardPage>
         <p>Page1</p>
-    </RoutePage>
+    </StandardPage>
 );
