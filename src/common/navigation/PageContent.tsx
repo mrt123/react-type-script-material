@@ -8,9 +8,12 @@ interface PageContentProps {
 }
 
 const PageContent = styled.div`
-	overflow: ${(p: PageContentProps) => p.overflow};
 	background: #f3f3f4;
-	padding: ${(p: PageContentProps) => p.contentPadding};
+    padding: ${(p: PageContentProps) => p.contentPadding};
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-grow: 1;
 `;
 
 export default PageContent

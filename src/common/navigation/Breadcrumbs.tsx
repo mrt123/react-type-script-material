@@ -5,7 +5,7 @@ import Breadcrumb from "./Breadcrumb";
 
 const Breadcrumbs = styled.div`
 	display: flex;
-	padding: 20px 25px 20px 25px;
+	padding: 3px 25px 5px 25px;
 	font-size: 13px;
 	font-weight: 700;
 `
@@ -23,7 +23,7 @@ interface BreadcrumbsProps {
 export default ({breadcrumbs}: BreadcrumbsProps) => {
     if(breadcrumbs === undefined || !breadcrumbs.length) return null
 
-    const breadcrumbComponents = breadcrumbs.map(b=> <Breadcrumb breadcrumbData={b}/>)
+    const breadcrumbComponents = breadcrumbs.map((b, i)=> <Breadcrumb key={i} breadcrumbData={b}/>)
 
     return (
         <Breadcrumbs>
