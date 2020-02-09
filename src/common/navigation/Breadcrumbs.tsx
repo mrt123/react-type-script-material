@@ -10,7 +10,7 @@ const Breadcrumbs = styled.div`
 	font-weight: 700;
 `
 
-export interface BreadcrumbData {
+interface BreadcrumbData {
     location: string
     title: string
     navigable: boolean

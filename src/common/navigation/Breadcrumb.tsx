@@ -1,7 +1,6 @@
 import React from 'react'
 // @ts-ignore
 import styled from 'styled-components'
-import {BreadcrumbData} from "./Breadcrumbs"
 
 const Breadcrumb = styled.div`
     margin: 0 5px 0 0;
@@ -20,11 +19,15 @@ const Chevron = styled.span`
     }
 `
 
-interface BreadcrumbProps {
-    breadcrumbData: BreadcrumbData
+interface Props {
+    breadcrumbData: {
+        location: string
+        title: string
+        navigable: boolean
+    }
 }
 
-export default ({breadcrumbData} :BreadcrumbProps) => {
+export default ({breadcrumbData} : Props) => {
 
     return (
         <Breadcrumb>
