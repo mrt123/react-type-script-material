@@ -3,7 +3,7 @@ import React, {ReactElement} from 'react'
 import styled from 'styled-components'
 // @ts-ignore  // ignore types for react-router-dom
 import {withRouter} from 'react-router-dom'
-import Breadcrumbs, {BreadcrumbData} from "./Breadcrumbs";
+import Breadcrumbs, {Props as BreadCrumbsProps} from "./Breadcrumbs";
 import MainMenu from "./MainMenu";
 import PageContent from "./PageContent";
 
@@ -24,7 +24,7 @@ interface Props {
     history: string
     overflow: string
     contentPadding: string
-    breadcrumbs: BreadcrumbData[]
+    breadcrumbs: BreadCrumbsProps["breadcrumbs"]
 }
 
 export default withRouter(({

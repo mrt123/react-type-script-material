@@ -10,17 +10,15 @@ const Breadcrumbs = styled.div`
 	font-weight: 700;
 `
 
-interface BreadcrumbData {
-    location: string
-    title: string
-    navigable: boolean
+export interface Props {
+    breadcrumbs?: {
+        location: string
+        title: string
+        navigable: boolean
+    }[]
 }
 
-interface BreadcrumbsProps {
-    breadcrumbs?: BreadcrumbData[]
-}
-
-export default ({breadcrumbs}: BreadcrumbsProps) => {
+export default ({breadcrumbs}: Props) => {
     if(breadcrumbs === undefined || !breadcrumbs.length) return null
 
     const breadcrumbComponents = breadcrumbs.map((b, i)=> <Breadcrumb key={i} breadcrumbData={b}/>)
