@@ -1,22 +1,22 @@
 import React, {ReactElement} from 'react'
-// @ts-ignore
 import styled from 'styled-components'
-// @ts-ignore  // ignore types for react-router-dom
 import {withRouter} from 'react-router-dom'
 import Breadcrumbs, {Props as BreadCrumbsProps} from "./Breadcrumbs";
 import MainMenu from "./MainMenu";
 import PageContent from "./PageContent";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Slide from '@material-ui/core/Slide';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
-const Header = styled.div`
-	background: black;
-	color: grey;
-`;
+function HideOnScroll({children}) {
+    const trigger = useScrollTrigger();
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>{children}</Slide>
+    );
+}
 
 const StandardPage = styled.div`
-    display: flex;
-    height: ${window.innerHeight}px;  // device height - address bar
-    flex-direction: column;
-    justify-content: center;
 `;
 
 interface Props {
@@ -30,13 +30,15 @@ interface Props {
 export default withRouter(({
                                children, history, breadcrumbs, contentPadding = '20px 25px 20px 25px'
                            }: Props) => {
-
     return (
         <StandardPage>
-            <Header>
-                <MainMenu/>
-                <Breadcrumbs breadcrumbs={breadcrumbs}/>
-            </Header>
+            <HideOnScroll>
+                <AppBar>
+                    <MainMenu/>
+                    <Breadcrumbs breadcrumbs={breadcrumbs}/>
+                </AppBar>
+            </HideOnScroll>
+            <Toolbar data-qa="Toolbar"/>
             <PageContent contentPadding={contentPadding}>
                 {children}
             </PageContent>
